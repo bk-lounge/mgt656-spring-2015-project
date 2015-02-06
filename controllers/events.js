@@ -55,7 +55,6 @@ function newEvent(request, response){
  * our global list of events.
  */
  
- 
 function checkIntRange(request, fieldName, minVal, maxVal, contextData){
   var value = null;
   if (validator.isInt(request.body[fieldName]) === false) {
@@ -63,7 +62,7 @@ function checkIntRange(request, fieldName, minVal, maxVal, contextData){
   }
   else{
     value=parseInt(request.body[fieldName], 10);
-    if (value>maxVal || value>minVal){
+    if (value>maxVal || value<minVal){
       contextData.errors.push('Your ' + fieldName +' should be in the range of ' + minVal + '-' + maxVal)
     }
   }
@@ -85,6 +84,11 @@ function saveEvent(request, response){
     contextData.errors.push('Your location should be between 5 and 100 letters.');
   }
 
+  var minute = request.body.minute;
+  if (minute != 0 && minute != 30){
+    contextData.errors.push('Events must start on the half hour or hour.');
+  }
+
   var year = checkIntRange(request, 'year', 2015, 2016, contextData);
   var month = checkIntRange(request, 'month', 0, 11, contextData);
   var day = checkIntRange(request, 'day', 1, 31, contextData);
@@ -93,14 +97,15 @@ function saveEvent(request, response){
   
   if (contextData.errors.length === 0) {
     var newEvent = {
+      id: events.all.length,
       title: request.body.title,
       location: request.body.location,
       image: request.body.image,
-      date: new Date(),
+      date: new Date(year, month, day, hour, minute),
       attending: []
     };
     events.all.push(newEvent);
-    response.redirect('/events');
+    response.redirect('/events/'+ events.all.length);
   }else{
     response.render('create-event.html', contextData);
   }
