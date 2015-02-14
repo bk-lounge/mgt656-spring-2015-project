@@ -72,16 +72,16 @@ function checkIntRange(request, fieldName, minVal, maxVal, contextData){
 function saveEvent(request, response){
   var contextData = {errors: []};
 
-  if (validator.isLength(request.body.title, 5, 100) === false) {
-    contextData.errors.push('Your title should be between 5 and 100 letters.');
+  if (validator.isLength(request.body.title, 5, 50) === false) {
+    contextData.errors.push('Your title should be between 5 and 50 letters.');
   }
   
   if (request.body.image.match(/\.(png|gif)$/) === null || validator.isURL(request.body.image) === false){
     contextData.errors.push('Your image should be a PNG or a GIF or a URL.')
   }
 
-  if (validator.isLength(request.body.location, 5, 100) === false) {
-    contextData.errors.push('Your location should be between 5 and 100 letters.');
+  if (validator.isLength(request.body.location, 5, 50) === false) {
+    contextData.errors.push('Your location should be between 5 and 50 letters.');
   }
 
   var minute = request.body.minute;
@@ -144,6 +144,10 @@ function rsvp (request, response){
 
 }
 
+function donation (request, response) {
+  response.send('Thanks for donating!');
+}
+
 function api(request, response){
   var output = {events: []};
   var search = request.query.search;
@@ -172,4 +176,5 @@ module.exports = {
   'saveEvent': saveEvent,
   'rsvp': rsvp,
   'api': api,
+  'donation': donation,
 };

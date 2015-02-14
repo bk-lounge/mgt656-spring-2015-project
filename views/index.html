@@ -3,7 +3,12 @@
 {% block header %}
   <header>
     <h1>{{ title }} FTW</h1>
+  </header>
+{% endblock %}
 
+{% block mainContent %}
+<head>
+  
 <script type="text/javascript">
 
   // var _gaq = _gaq || [];
@@ -24,10 +29,7 @@
   ga('create', 'UA-59718130-1', 'auto');
   ga('send', 'pageview');
     </script>
-  </header>
-{% endblock %}
-
-{% block mainContent %}
+</head>
   <p>
     Welcome to {{ title }}. {{tagline}}
   </p>
