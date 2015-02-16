@@ -1,25 +1,24 @@
 {% extends "layout.html" %}
 
-{% block header %}
-  <header>
-    <h1>{{ title }} FTW</h1>
-  </header>
-{% endblock %}
-
 {% block mainContent %}
-  <p>
+<div class="container-narrow">
+  <p class="hideme">
     Welcome to {{ title }}. {{tagline}}
   </p>
-  <img id="logo" src="http://i.imgur.com/n2gOiFS.png">
-  <p>Here is our list of events: </p>
-  <div style="border:1px solid black">
+  <img id="logo" src="http://i.imgur.com/QCumD7u.png">
+  <div class="hero-unit">
+    <h1>Welcome to our Event App!</h1>
+    </br>
+    <p><a id ="new" href="/events/new" class="btn btn-primary btn-large">Create a new event &raquo;</a></p>
+  </div>
+  
+  <h3>Upcoming events: </h3>
+  <div>
         {% include "fragments/events-list.html" %}
   </div>
-  <p>
+  <p class="hideme">
     Check out the <a href="/about">About us</a> page
     as well as the <a href="/events">Events</a> page.
   </p>
-  <p>
-    <a id="new" href="/events/new">Create a new event</a>
-  </p>
+</div>
 {% endblock %}

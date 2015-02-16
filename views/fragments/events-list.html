@@ -1,12 +1,17 @@
-<ul>
-  {% for event in events %}
-    <li class="event" id="event-{{event.id}}">
-      <a href="/events/{{event.id}}">{{event.title}}</a>
-      <time datetime="{{event.date}}">{{event.date|prettyDate}}</time>
-      {{event.attending.length}} attending so far.
-    </li>
-  {% endfor %}
-</ul>
+<div class="row">
+  <ul>
+    {% for event in events %}
+    <div class="span4">
+      <li class="event" id="event-{{event.id}}">
+        <h2><a href="/events/{{event.id}}">{{event.title}}</a></h2>
+        <p><time datetime="{{event.date}}">{{event.date|prettyDate}}</time></p>
+        <p>{{event.attending.length}} attending so far.</p>
+        <li style="list-style:none;"><p><a class="btn" href="/events/{{event.id}}">View details &raquo;</a></p></li>
+      </li>
+    </div>
+    {% endfor %}
+  </ul>
+</div>
 
 <!-- Load the Content Experiment JavaScript API client for the experiment -->
 <script src="//www.google-analytics.com/cx/api.js?experiment=fnO0-EwST1GG6t9suRcLdA"></script>

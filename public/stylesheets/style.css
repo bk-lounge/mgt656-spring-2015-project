@@ -1,11 +1,24 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /*background: url(http://i.imgur.com/nCqMojg.png) repeat 0 0;*/
 }
 
-a {
-  color: #00B7FF;
+.container-narrow {
+  margin: 0 auto;
+  max-width: 1200px;
 }
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+.container-narrow {
+    background-image: url(http://i.imgur.com/bwtZ8cd.png);
+}
+
+/*a {
+  color: #00B7FF;
+}*/
 
 .form-errors {
 	color: red;
@@ -16,4 +29,38 @@ footer{
   padding: 1em;
   border: 1px solid #ddd;
   margin: 2em 0;
+}
+
+ul.foot {
+  margin: 0;
+  list-style-type: circle;
+}
+
+li.footer{
+  display: inline;
+  margin: 3px;
+}
+
+.hideme {
+  display: none;
+}
+
+#logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+li.event {
+  list-style: none;
+}
+
+div.span4 {
+  margin:0px;
+  text-align: center;
+}
+
+div.hero-unit {
+  background: none;
+  text-align:center;
 }
