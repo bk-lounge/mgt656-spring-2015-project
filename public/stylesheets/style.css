@@ -63,4 +63,22 @@ div.span4 {
 div.hero-unit {
   background: none;
   text-align:center;
+  padding-top: 0;
+}
+
+div#detail{
+  text-align:center;
+}
+
+ul#attendees {
+  list-style: none;
+  margin-right: 25px;
+}
+
+img#image {
+  border: 10px solid #5EE1FF;
+}
+
+h3#upcoming {
+  padding-left: 10px;
 }
