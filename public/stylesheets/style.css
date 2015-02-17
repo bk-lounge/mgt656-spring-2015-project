@@ -64,6 +64,7 @@ div.hero-unit {
   background: none;
   text-align:center;
   padding-top: 0;
+  padding-right: 125px;
 }
 
 div#detail{
